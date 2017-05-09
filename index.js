@@ -9,29 +9,29 @@ var curyear = d.getFullYear();
 function getMonth(startDateStr) {
     switch (startDateStr.substr(5,2)) {
     case '01':
-        return "January ";
+        return "Enero ";
     case '02':
-        return "February ";
+        return "Febrero ";
     case '03':
-        return "March ";
+        return "Marzo ";
     case '04':
-        return "April ";
+        return "Abril ";
     case '05':
-        return "May ";
+        return "Mayo ";
     case '06':
-        return "June ";
+        return "Junio ";
     case '07':
-        return "July ";
+        return "Julio ";
     case '08':
-        return "August ";
+        return "Agosto ";
     case '09':
-        return "September ";
+        return "Septiembre ";
     case '10':
-        return "October ";
+        return "Octubre ";
     case '11':
-        return "November ";
+        return "Noviembre ";
     case '12':
-        return "December ";
+        return "Diciembre ";
     }
 }
 
