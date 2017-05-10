@@ -7,7 +7,7 @@ var d = new Date();
 var curyear = d.getFullYear();
 
 function getMonth(startDateStr) {
-    switch (startDateStr.substr(5,2)) {
+    switch (startDateStr.substr(0,2)) {
     case '01':
         return "Enero ";
     case '02':
@@ -107,15 +107,14 @@ function render(resumeObject) {
         resumeObject.workBool = true;
         _.each(resumeObject.work, function(w){
             if (w.startDate) {
-                w.startDateYear = (w.startDate || "").substr(0,4);
+                w.startDateYear = (w.startDate || "").substr(3,4);
                 w.startDateMonth = getMonth(w.startDate || "");
-
             }
             if(w.endDate) {
-                w.endDateYear = (w.endDate || "").substr(0,4);
+                w.endDateYear = (w.endDate || "").substr(3,4);
                 w.endDateMonth = getMonth(w.endDate || "");
             } else {
-                w.endDateYear = 'Present'
+                w.endDateYear = 'Ahora'
             }
             if (w.highlights) {
                 if (w.highlights[0]) {
@@ -131,15 +130,15 @@ function render(resumeObject) {
         resumeObject.volunteerBool = true;
         _.each(resumeObject.volunteer, function(w){
             if (w.startDate) {
-                w.startDateYear = (w.startDate || "").substr(0,4);
+                w.startDateYear = (w.startDate || "").substr(3,4);
                 w.startDateMonth = getMonth(w.startDate || "");
 
             }
             if(w.endDate) {
-                w.endDateYear = (w.endDate || "").substr(0,4);
+                w.endDateYear = (w.endDate || "").substr(3,4);
                 w.endDateMonth = getMonth(w.endDate || "");
             } else {
-                w.endDateYear = 'Present'
+                w.endDateYear = 'Ahora'
             }
             if (w.highlights) {
                 if (w.highlights[0]) {
@@ -161,20 +160,22 @@ function render(resumeObject) {
                   e.educationDetail = e.area + ", "+ e.studyType;
                 }
                 if (e.startDate) {
-                    e.startDateYear = e.startDate.substr(0,4);
+                    e.startDateYear = e.startDate.substr(3,4);
+                    console.log(e.startDateYear);
                     e.startDateMonth = getMonth(e.startDate || "");
+                    console.log(e.startDateMonth);
                 } else {
                     e.endDateMonth = "";
                 }
                 if (e.endDate) {
-                    e.endDateYear = e.endDate.substr(0,4);
+                    e.endDateYear = e.endDate.substr(3,4);
                     e.endDateMonth = getMonth(e.endDate || "")
 
                     if (e.endDateYear > curyear) {
-                        e.endDateYear += " (expected)";
+                        e.endDateYear += " (esperado)";
                     }
                 } else {
-                    e.endDateYear = 'Present'
+                    e.endDateYear = 'Ahora'
                     e.endDateMonth = '';
                 }
                 if (e.courses) {
